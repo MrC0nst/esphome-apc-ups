@@ -70,6 +70,12 @@ void ApcUps::loop() {
       case POLLING_L:
         this->publish_state_(this->grid_voltage_, value_grid_voltage_);
         break;
+      case POLLING_M:
+        this->publish_state_(this->max_grid_voltage_, value_max_grid_voltage_);
+        break;
+      case POLLING_N:
+        this->publish_state_(this->min_grid_voltage_, value_min_grid_voltage_);
+        break;
       case POLLING_O:
         this->publish_state_(this->ac_output_voltage_, value_ac_output_voltage_);
         break;
@@ -156,6 +162,18 @@ void ApcUps::loop() {
         ESP_LOGD(TAG, "Decode L");
         // "231.8\r\n"
         sscanf(tmp, "%f", &value_grid_voltage_);  // NOLINT
+        this->state_ = STATE_POLL_DECODED;
+        break;
+      case POLLING_M:
+        ESP_LOGD(TAG, "Decode M");
+        // "231.8\r\n"
+        sscanf(tmp, "%f", &value_max_grid_voltage_);  // NOLINT
+        this->state_ = STATE_POLL_DECODED;
+        break;
+      case POLLING_N:
+        ESP_LOGD(TAG, "Decode N");
+        // "231.8\r\n"
+        sscanf(tmp, "%f", &value_min_grid_voltage_);  // NOLINT
         this->state_ = STATE_POLL_DECODED;
         break;
       case POLLING_O:
