@@ -105,8 +105,8 @@ sensor:
       name: "${name} nominal output voltage"
     upper_transfer_voltage:
       name: "${name} upper transfer voltage"
-    internal_humidity:
-      name: "${name}  internal humidity"
+    ambient_humidity:
+      name: "${name} ambient humidity"
 
 text_sensor:
   - platform: apc_ups
