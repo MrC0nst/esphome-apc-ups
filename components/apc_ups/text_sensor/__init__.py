@@ -11,7 +11,7 @@ CONF_PROTOCOL_INFO = "protocol_info"
 CONF_FIRMWARE_REVISION = "firmware_revision"
 CONF_MANUFACTURE_DATE = "manufacture_date"
 CONF_LAST_BATTERY_CHANGE_DATE = "last_battery_change_date"
-CONF_LAST_SERIAL NUMBER = "serial_number"
+CONF_SERIAL NUMBER = "serial_number"
 CONF_OLD_FIRMWARE_VERSION = "old_firmware_version"
 
 TYPES = [
@@ -20,7 +20,7 @@ TYPES = [
     CONF_FIRMWARE_REVISION,
     CONF_MANUFACTURE_DATE,
     CONF_LAST_BATTERY_CHANGE_DATE,
-    CONF_LAST_SERIAL NUMBER,
+    CONF_SERIAL NUMBER,
     CONF_OLD_FIRMWARE_VERSION,
 ]
 
