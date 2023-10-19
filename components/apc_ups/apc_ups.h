@@ -42,7 +42,7 @@ enum ENUMPollingCommand {
   POLLING_LOWER_E = 27,  // Return threshold @TODO
   POLLING_LOWER_F = 28,  // Battery level
   POLLING_LOWER_G = 29,  // Nominal battery voltage @TODO
-  POLLING_LOWER_H = 30,  // Measure-UPS ambient humidity @TODO
+  POLLING_LOWER_H = 30,  // Measure-UPS ambient humidity 
   POLLING_LOWER_I = 31,  // Measure-UPS dry contacts @TODO
   POLLING_LOWER_J = 32,  // Estimated runtime
   POLLING_LOWER_K = 33,  // Alarm delay @TODO
