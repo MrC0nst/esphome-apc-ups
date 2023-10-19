@@ -116,6 +116,7 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_BINARY_SENSOR(output_overloaded, Q, Q)
   APC_UPS_BINARY_SENSOR(battery_low, Q, Q)
   APC_UPS_BINARY_SENSOR(replace_battery, Q, Q)
+  APC_UPS_SENSOR(internal_humidity, LOWER_H, h, float)
   APC_UPS_SENSOR(state_of_charge, LOWER_F, f, float)
   APC_UPS_SENSOR(low_transfer_voltage, LOWER_L, l, float)
   APC_UPS_SENSOR(nominal_output_voltage, LOWER_O, o, float)
