@@ -24,8 +24,8 @@ enum ENUMPollingCommand {
   POLLING_J = 9,         // Measure-UPS alarm status @TODO
   POLLING_K = 10,        // Shutdown with grace period (no return) @TODO
   POLLING_L = 11,        // Input line voltage
-  POLLING_M = 12,        // Maximum line voltage @TODO
-  POLLING_N = 13,        // Minimum line voltage @TODO
+  POLLING_M = 12,        // Maximum line voltage
+  POLLING_N = 13,        // Minimum line voltage
   POLLING_O = 14,        // Output voltage
   POLLING_P = 15,        // Power load in %
   POLLING_Q = 16,        // Status flags
@@ -103,6 +103,8 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_SENSOR(grid_frequency, F, F, float)
   APC_UPS_VALUED_TEXT_SENSOR(cause_of_last_transfer, G, G, std::string)
   APC_UPS_SENSOR(grid_voltage, L, L, float)
+  APC_UPS_SENSOR(max_grid_voltage, M, M, float)
+  APC_UPS_SENSOR(min_grid_voltage, N, N, float)
   APC_UPS_SENSOR(ac_output_voltage, O, O, float)
   APC_UPS_SENSOR(ac_output_load, P, P, float)
   APC_UPS_SENSOR(status_bitmask, Q, Q, int)
