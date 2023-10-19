@@ -9,6 +9,7 @@ from esphome.const import (
     ICON_TIMELAPSE,
     STATE_CLASS_MEASUREMENT,
     DEVICE_CLASS_TEMPERATURE,
+    DEVICE_CLASS_HUMIDITY,
     STATE_CLASS_TOTAL_INCREASING,
     UNIT_CELSIUS,
     UNIT_EMPTY,
@@ -36,8 +37,8 @@ CONF_STATUS_BITMASK = "status_bitmask"
 CONF_STATE_OF_CHARGE = "state_of_charge"
 CONF_ESTIMATED_RUNTIME = "estimated_runtime"
 CONF_INTERNAL_TEMPERATURE = "internal_temperature"
+CONF_INTERNAL_HUMIDITY = "internal_humidity"
 CONF_AMBIENT_TEMPERATURE = "ambient_temperature"
-
 
 ICON_STATE_OF_CHARGE = "mdi:battery-50"
 ICON_OPERATION_STATUS_BITMASK = "mdi:heart-pulse"
@@ -115,16 +116,21 @@ TYPES = {
     ),
     cv.Optional(CONF_INTERNAL_TEMPERATURE): sensor.sensor_schema(
         unit_of_measurement=UNIT_CELSIUS,
-        icon=ICON_TIMELAPSE,
         accuracy_decimals=1,
         device_class=DEVICE_CLASS_TEMPERATURE,
+    ),
+    cv.Optional(CONF_INTERNAL_HUMIDITY): sensor.sensor_schema(
+        unit_of_measurement=UNIT_PERCENT,
+        accuracy_decimals=1,
+        device_class=DEVICE_CLASS_HUMIDITY,
+        state_class=STATE_CLASS_MEASUREMENT,
     ),
     cv.Optional(CONF_AMBIENT_TEMPERATURE): sensor.sensor_schema(
         unit_of_measurement=UNIT_CELSIUS,
-        icon=ICON_TIMELAPSE,
         accuracy_decimals=1,
         device_class=DEVICE_CLASS_TEMPERATURE,
     ),
+    
     # CONF_AC_OUTPUT_RATING_VOLTAGE: sensor.sensor_schema(
     #     unit_of_measurement=UNIT_VOLT,
     #     accuracy_decimals=1,
