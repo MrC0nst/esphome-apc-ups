@@ -25,6 +25,8 @@ DEPENDENCIES = ["uart"]
 # CONF_BATTERY_VOLTAGE = "battery_voltage"
 CONF_GRID_FREQUENCY = "grid_frequency"
 CONF_GRID_VOLTAGE = "grid_voltage"
+CONF_MAX_GRID_VOLTAGE = "max_grid_voltage"
+CONF_MIN_GRID_VOLTAGE = "min_grid_voltage"
 CONF_AC_OUTPUT_VOLTAGE = "ac_output_voltage"
 CONF_AC_OUTPUT_LOAD = "ac_output_load"
 CONF_STATUS_BITMASK = "status_bitmask"
@@ -48,6 +50,16 @@ TYPES = {
         accuracy_decimals=2,
     ),
     CONF_GRID_VOLTAGE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=1,
+        device_class=DEVICE_CLASS_VOLTAGE,
+    ),
+    CONF_MAX_GRID_VOLTAGE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=1,
+        device_class=DEVICE_CLASS_VOLTAGE,
+    ),
+    CONF_MIN_GRID_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=1,
         device_class=DEVICE_CLASS_VOLTAGE,
