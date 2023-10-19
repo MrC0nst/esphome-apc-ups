@@ -48,7 +48,7 @@ enum ENUMPollingCommand {
   POLLING_LOWER_K = 33,  // Alarm delay @TODO
   POLLING_LOWER_L = 34,  // Low transfer voltage @TODO
   POLLING_LOWER_M = 35,  // Manufacture date
-  POLLING_LOWER_N = 36,  // Serial number @TODO
+  POLLING_LOWER_N = 36,  // Serial number
   POLLING_LOWER_O = 37,  // Nominal Output Voltage @TODO
   POLLING_LOWER_P = 38,  // Shutdown grace delay @TODO
   POLLING_LOWER_Q = 39,  // Low battery warning @TODO
@@ -120,6 +120,7 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_VALUED_TEXT_SENSOR(firmware_revision, LOWER_B, b, std::string)
   APC_UPS_SENSOR(estimated_runtime, LOWER_J, j, float)
   APC_UPS_VALUED_TEXT_SENSOR(manufacture_date, LOWER_M, m, std::string)
+  APC_UPS_VALUED_TEXT_SENSOR(serial_number, LOWER_N, n, std::string)
   APC_UPS_SENSOR(ambient_temperature, LOWER_T, t, float)
   APC_UPS_VALUED_TEXT_SENSOR(last_battery_change_date, LOWER_X, x, std::string)
 
