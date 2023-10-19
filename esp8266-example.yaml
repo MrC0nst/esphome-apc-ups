@@ -84,7 +84,7 @@ sensor:
     max_grid_voltage:
       name: "${name} max grid voltage"
     min_grid_voltage:
-      name: "${name} min grid voltage" 
+      name: "${name} min grid voltage"      
     ac_output_voltage:
       name: "${name} ac output voltage"
     ac_output_load:
@@ -99,6 +99,12 @@ sensor:
       name: "${name} internal temperature"
     ambient_temperature:
       name: "${name} ambient temperature"
+    low_transfer_voltage:
+      name: "${name} low transfer voltage"
+    nominal_output_voltage:
+      name: "${name} nominal output voltage"
+    upper_transfer_voltage:
+      name: "${name} upper transfer voltage"
 
 text_sensor:
   - platform: apc_ups
@@ -115,3 +121,5 @@ text_sensor:
       name: "${name} last battery change date"
     serial_number:
       name: "${name} serial number"
+    old_firmware_version:
+      name: "${name}  old firmware version"
