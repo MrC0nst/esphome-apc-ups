@@ -168,7 +168,7 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
     STATE_POLL_COMPLETE = 3,
     STATE_COMMAND_COMPLETE = 4,
     STATE_POLL_CHECKED = 5,
-    STATE_POLL_DECODED = 6,
+    STATE_POLL_DECODED = 9,
   };
 
   uint8_t last_polling_command_ = 0;
