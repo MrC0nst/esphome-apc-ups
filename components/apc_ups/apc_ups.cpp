@@ -102,6 +102,9 @@ void ApcUps::loop() {
       case POLLING_LOWER_M:
         this->publish_state_(this->manufacture_date_, value_manufacture_date_);
         break;
+      case POLLING_LOWER_N:
+        this->publish_state_(this->serial_number_, value_serial_number_);
+        break;
       case POLLING_LOWER_T:
         this->publish_state_(this->ambient_temperature_, value_ambient_temperature_);
         break;
@@ -201,6 +204,12 @@ void ApcUps::loop() {
         ESP_LOGD(TAG, "Decode m");
         // "11/29/96\r\n"
         this->value_manufacture_date_ = tmp;
+        this->state_ = STATE_POLL_DECODED;
+        break;
+      case POLLING_LOWER_N:
+        ESP_LOGD(TAG, "Decode n");
+        // "11/29/96\r\n"
+        this->value_serial_number_ = tmp;
         this->state_ = STATE_POLL_DECODED;
         break;
       case POLLING_LOWER_T:
