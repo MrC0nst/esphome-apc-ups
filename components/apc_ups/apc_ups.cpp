@@ -106,7 +106,7 @@ void ApcUps::loop() {
         this->publish_state_(this->state_of_charge_, value_state_of_charge_);
         break;
       case POLLING_LOWER_H:
-        this->publish_state_(this->state_internal_humidity_, value_internal_humidity_);
+        this->publish_state_(this->internal_humidity_, value_internal_humidity_);
         break;      
       case POLLING_LOWER_J:
         this->publish_state_(this->estimated_runtime_, value_estimated_runtime_);
