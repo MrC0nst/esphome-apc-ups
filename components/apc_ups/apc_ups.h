@@ -172,7 +172,7 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   };
 
   uint8_t last_polling_command_ = 0;
-  PollingCommand used_polling_commands_[40];
+  PollingCommand used_polling_commands_[49];
 };
 
 }  // namespace apc_ups
