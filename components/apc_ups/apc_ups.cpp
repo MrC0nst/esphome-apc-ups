@@ -111,7 +111,7 @@ void ApcUps::loop() {
       case POLLING_LOWER_J:
         this->publish_state_(this->estimated_runtime_, value_estimated_runtime_);
         break;
-       case POLLING_LOWER_L:
+      case POLLING_LOWER_L:
         this->publish_state_(this->low_transfer_voltage_, value_low_transfer_voltage_);
         break;     
       case POLLING_LOWER_M:
