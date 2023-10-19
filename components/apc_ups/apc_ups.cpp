@@ -106,7 +106,7 @@ void ApcUps::loop() {
         this->publish_state_(this->state_of_charge_, value_state_of_charge_);
         break;
       case POLLING_LOWER_H:
-        this->publish_state_(this->internal_humidity_, value_internal_humidity_);
+        this->publish_state_(this->ambient_humidity_, value_ambient_humidity_);
         break;      
       case POLLING_LOWER_J:
         this->publish_state_(this->estimated_runtime_, value_estimated_runtime_);
@@ -235,7 +235,7 @@ void ApcUps::loop() {
       case POLLING_LOWER_H:
         ESP_LOGD(TAG, "Decode h");
         // "100.0\r\n"
-        sscanf(tmp, "%f", &value_internal_humidity_);  // NOLINT
+        sscanf(tmp, "%f", &value_ambient_humidity_);  // NOLINT
         this->state_ = STATE_POLL_DECODED;
         break;      
       case POLLING_LOWER_J:
