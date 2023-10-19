@@ -81,6 +81,10 @@ sensor:
       name: "${name} grid frequency"
     grid_voltage:
       name: "${name} grid voltage"
+    max_grid_voltage:
+      name: "${name} max grid voltage"
+    min_grid_voltage:
+      name: "${name} min grid voltage" 
     ac_output_voltage:
       name: "${name} ac output voltage"
     ac_output_load:
