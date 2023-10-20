@@ -131,3 +131,16 @@ text_sensor:
       name: "${name} serial number"
     old_firmware_version:
       name: "${name}  old firmware version"
+    measure_upc_firmware:
+      name: "${name} measure_upc_firmware"
+    copyright_notice:
+      name: "${name} copyright_notice"
+    self_test_results:
+      name: "${name} self_test_results"
+    alarm_delay:
+      name: "${name} alarm_delay"
+    line_quality:
+      name: "${name} line_quality"
+
+
+
