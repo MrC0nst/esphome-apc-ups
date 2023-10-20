@@ -168,11 +168,11 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
     STATE_POLL_COMPLETE = 3,
     STATE_COMMAND_COMPLETE = 4,
     STATE_POLL_CHECKED = 5,
-    STATE_POLL_DECODED = 17,
+    STATE_POLL_DECODED = 6,
   };
 
   uint8_t last_polling_command_ = 0;
-  PollingCommand used_polling_commands_[48];
+  PollingCommand used_polling_commands_[40];
 };
 
 }  // namespace apc_ups
