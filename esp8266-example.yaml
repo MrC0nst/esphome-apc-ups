@@ -71,7 +71,6 @@ binary_sensor:
       name: "${name} battery low"
     replace_battery:
       name: "${name} replace battery"
-
 sensor:
   - platform: apc_ups
     apc_ups_id: ups0
@@ -107,7 +106,11 @@ sensor:
       name: "${name} upper transfer voltage"
     ambient_humidity:
       name: "${name} ambient humidity"
-
+    nominal_battery_voltage:
+      name: "${name} nominal_battery_voltage"
+    return_threshold:
+      name: "${name} return_threshold"
+      
 text_sensor:
   - platform: apc_ups
     apc_ups_id: ups0
