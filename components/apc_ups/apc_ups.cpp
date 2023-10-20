@@ -102,9 +102,15 @@ void ApcUps::loop() {
       case POLLING_LOWER_B:
         this->publish_state_(this->firmware_revision_, value_firmware_revision_);
         break;
+       case POLLING_LOWER_E:
+        this->publish_state_(this->return_threshold_, value_return_threshold_);
+        break;     
       case POLLING_LOWER_F:
         this->publish_state_(this->state_of_charge_, value_state_of_charge_);
         break;
+      case POLLING_LOWER_G:
+        this->publish_state_(this->nominal_battery_voltage_, value_nominal_battery_voltage_);
+        break;  
       case POLLING_LOWER_H:
         this->publish_state_(this->ambient_humidity_, value_ambient_humidity_);
         break;      
@@ -226,10 +232,22 @@ void ApcUps::loop() {
         this->value_firmware_revision_ = tmp;
         this->state_ = STATE_POLL_DECODED;
         break;
+      case POLLING__LOWER_E:
+        ESP_LOGD(TAG, "Decode e");
+        // "53.8\r\n"
+        sscanf(tmp, "%f", &value_return_threshold_);  // NOLINT
+        this->state_ = STATE_POLL_DECODED;
+        break;
       case POLLING_LOWER_F:
         ESP_LOGD(TAG, "Decode f");
         // "100.0\r\n"
         sscanf(tmp, "%f", &value_state_of_charge_);  // NOLINT
+        this->state_ = STATE_POLL_DECODED;
+        break;
+      case POLLING__LOWER_G:
+        ESP_LOGD(TAG, "Decode g");
+        // "53.8\r\n"
+        sscanf(tmp, "%f", &value_nominal_battery_voltage_);  // NOLINT
         this->state_ = STATE_POLL_DECODED;
         break;
       case POLLING_LOWER_H:
