@@ -131,7 +131,7 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_VALUED_TEXT_SENSOR(self_test_results, X, X, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(protocol_info, LOWER_A, a, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(firmware_revision, LOWER_B, b, std::string)
-  APC_UPS_VALUED_TEXT_SENSOR(alarm_delay, LOWER_K, k , float)
+  APC_UPS_VALUED_TEXT_SENSOR(alarm_delay, LOWER_K, k , std::string)
   APC_UPS_VALUED_TEXT_SENSOR(manufacture_date, LOWER_M, m, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(serial_number, LOWER_N, n, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(measure_upc_firmware, LOWER_V, v , float)
