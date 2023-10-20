@@ -39,6 +39,8 @@ CONF_ESTIMATED_RUNTIME = "estimated_runtime"
 CONF_INTERNAL_TEMPERATURE = "internal_temperature"
 CONF_AMBIENT_HUMIDITY = "ambient_humidity"
 CONF_AMBIENT_TEMPERATURE = "ambient_temperature"
+CONF_NOMINAL_BATTERY_VOLTAGE = "nominal_battery_voltage"
+CONF_RETURN_THRESHOLD = "return_threshold"
 
 ICON_STATE_OF_CHARGE = "mdi:battery-50"
 ICON_OPERATION_STATUS_BITMASK = "mdi:heart-pulse"
@@ -48,7 +50,17 @@ TYPES = {
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=2,
         device_class=DEVICE_CLASS_VOLTAGE,
+    ),   
+    CONF_NOMINAL_BATTERY_VOLTAGE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_VOLTAGE,
     ),
+    CONF_RETURN_THRESHOLD: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_VOLTAGE,
+    ),    
     CONF_GRID_FREQUENCY: sensor.sensor_schema(
         unit_of_measurement=UNIT_HERTZ,
         icon=ICON_CURRENT_AC,
