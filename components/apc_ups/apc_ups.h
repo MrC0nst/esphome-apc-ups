@@ -39,9 +39,9 @@ enum ENUMPollingCommand {
   POLLING_LOWER_A = 24,  // Protocol info
   POLLING_LOWER_B = 25,  // Firmware revision
   POLLING_LOWER_C = 26,  // UPS local id @TODO
-  POLLING_LOWER_E = 27,  // Return threshold @TODO
+  POLLING_LOWER_E = 27,  // Return threshold 
   POLLING_LOWER_F = 28,  // Battery level
-  POLLING_LOWER_G = 29,  // Nominal battery voltage @TODO
+  POLLING_LOWER_G = 29,  // Nominal battery voltage
   POLLING_LOWER_H = 30,  // Measure-UPS ambient humidity 
   POLLING_LOWER_I = 31,  // Measure-UPS dry contacts @TODO
   POLLING_LOWER_J = 32,  // Estimated runtime
@@ -116,8 +116,11 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_BINARY_SENSOR(output_overloaded, Q, Q)
   APC_UPS_BINARY_SENSOR(battery_low, Q, Q)
   APC_UPS_BINARY_SENSOR(replace_battery, Q, Q)
+
   APC_UPS_SENSOR(ambient_humidity, LOWER_H, h, float)
+  APC_UPS_SENSOR(return_threshold, LOWER_E, E, float)
   APC_UPS_SENSOR(state_of_charge, LOWER_F, f, float)
+  APC_UPS_SENSOR(nominal_battery_voltage, LOWER_G, g, float)
   APC_UPS_SENSOR(low_transfer_voltage, LOWER_L, l, float)
   APC_UPS_SENSOR(nominal_output_voltage, LOWER_O, o, float)
   APC_UPS_SENSOR(upper_transfer_voltage, LOWER_U, u, float)
