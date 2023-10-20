@@ -73,6 +73,10 @@ binary_sensor:
       name: "${name} battery low"
     replace_battery:
       name: "${name} replace battery"
+    nominal_battery_voltage:
+      name: "${name} nominal_battery_voltage"
+    return_threshold:
+      name: "${name} return_threshold"
 
 sensor:
   - platform: apc_ups
