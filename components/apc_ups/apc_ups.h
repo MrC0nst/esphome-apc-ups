@@ -134,10 +134,10 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_VALUED_TEXT_SENSOR(alarm_delay, LOWER_K, k , std::string)
   APC_UPS_VALUED_TEXT_SENSOR(manufacture_date, LOWER_M, m, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(serial_number, LOWER_N, n, std::string)
-  APC_UPS_VALUED_TEXT_SENSOR(measure_upc_firmware, LOWER_V, v , float)
+  APC_UPS_VALUED_TEXT_SENSOR(measure_upc_firmware, LOWER_V, v , std::string)
   APC_UPS_VALUED_TEXT_SENSOR(last_battery_change_date, LOWER_X, x, std::string)
-  APC_UPS_VALUED_TEXT_SENSOR(copyright_notice, LOWER_Y, Y, float)
-  APC_UPS_VALUED_TEXT_SENSOR(line_quality, 9 , 9, float)
+  APC_UPS_VALUED_TEXT_SENSOR(copyright_notice, LOWER_Y, Y, std::string)
+  APC_UPS_VALUED_TEXT_SENSOR(line_quality, 9 , 9, std::string)
 
   void switch_command(const std::string &command);
   void setup() override;
