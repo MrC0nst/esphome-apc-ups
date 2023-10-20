@@ -253,7 +253,7 @@ void ApcUps::loop() {
         this->value_firmware_revision_ = tmp;
         this->state_ = STATE_POLL_DECODED;
         break;
-      case POLLING__LOWER_E:
+      case POLLING_LOWER_E:
         ESP_LOGD(TAG, "Decode e");
         // "53.8\r\n"
         sscanf(tmp, "%f", &value_return_threshold_);  // NOLINT
@@ -265,7 +265,7 @@ void ApcUps::loop() {
         sscanf(tmp, "%f", &value_state_of_charge_);  // NOLINT
         this->state_ = STATE_POLL_DECODED;
         break;
-      case POLLING__LOWER_G:
+      case POLLING_LOWER_G:
         ESP_LOGD(TAG, "Decode g");
         // "53.8\r\n"
         sscanf(tmp, "%f", &value_nominal_battery_voltage_);  // NOLINT
