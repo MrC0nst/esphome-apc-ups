@@ -102,7 +102,7 @@ TYPES = {
     ),
     CONF_AC_OUTPUT_LOAD: sensor.sensor_schema(
         unit_of_measurement=UNIT_PERCENT,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),
     cv.Optional(CONF_STATUS_BITMASK): sensor.sensor_schema(
         unit_of_measurement=UNIT_EMPTY,
