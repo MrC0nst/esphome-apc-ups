@@ -58,7 +58,7 @@ TYPES = {
     ),
     CONF_RETURN_THRESHOLD: sensor.sensor_schema(
         unit_of_measurement=UNIT_PERCENT,
-        accuracy_decimals=1,
+        accuracy_decimals=0,
     ),    
     CONF_GRID_FREQUENCY: sensor.sensor_schema(
         unit_of_measurement=UNIT_HERTZ,
