@@ -57,9 +57,8 @@ TYPES = {
         device_class=DEVICE_CLASS_VOLTAGE,
     ),
     CONF_RETURN_THRESHOLD: sensor.sensor_schema(
-        unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=2,
-        device_class=DEVICE_CLASS_VOLTAGE,
+        unit_of_measurement=UNIT_PERCENT,
+        accuracy_decimals=1,
     ),    
     CONF_GRID_FREQUENCY: sensor.sensor_schema(
         unit_of_measurement=UNIT_HERTZ,
