@@ -3,11 +3,11 @@ from esphome.components import switch
 import esphome.config_validation as cv
 from esphome.const import CONF_BEEPER, ICON_POWER
 
-from .. import APC_UPS_COMPONENT_SCHEMA, CONF_APC_UPS_ID, apc_ups_ns
+from .. import APC_UPS_COMPONENT_SCHEMA, CONF_APC_UPS_ID
 
 DEPENDENCIES = ["uart"]
 
-# CONF_BEEPER = "beeper"
+CONF_BEEPER = "beeper"
 CONF_QUICK_TEST = "quick_test"
 CONF_DEEP_TEST = "deep_test"
 CONF_TEN_MINUTES_TEST = "ten_minutes_test"
@@ -19,7 +19,7 @@ TYPES = {
     CONF_TEN_MINUTES_TEST: ("T10", "CT"),
 }
 
-ApcUpsSwitch = apc_ups_ns.class_("ApcUpsSwitch", switch.Switch, cg.Component)
+ApcUpsSwitch = apc_ups.class_("ApcUpsSwitch", switch.Switch, cg.Component)
 
 PIPSWITCH_SCHEMA = switch.switch_schema(
     ApcUpsSwitch, icon=ICON_POWER, block_inverted=True
