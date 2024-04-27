@@ -1,7 +1,7 @@
 substitutions:
   name: apc-ups
   device_description: "Monitor and control a APC UPS via RS232"
-  external_components_source: github://syssi/esphome-apc-ups@main
+  external_components_source: github://MrC0nst/esphome-apc-ups@main
   tx_pin: GPIO16
   rx_pin: GPIO17
 
@@ -73,10 +73,6 @@ binary_sensor:
       name: "${name} battery low"
     replace_battery:
       name: "${name} replace battery"
-    nominal_battery_voltage:
-      name: "${name} nominal_battery_voltage"
-    return_threshold:
-      name: "${name} return_threshold"
 
 sensor:
   - platform: apc_ups
@@ -87,10 +83,6 @@ sensor:
       name: "${name} grid frequency"
     grid_voltage:
       name: "${name} grid voltage"
-    max_grid_voltage:
-      name: "${name} max grid voltage"
-    min_grid_voltage:
-      name: "${name} min grid voltage"      
     ac_output_voltage:
       name: "${name} ac output voltage"
     ac_output_load:
@@ -105,22 +97,44 @@ sensor:
       name: "${name} internal temperature"
     ambient_temperature:
       name: "${name} ambient temperature"
+    max_grid_voltage:
+      name: "${name} max grid voltage"
+    min_grid_voltage:
+      name: "${name} min grid voltage"   
+    ambient_humidity:
+      name: "${name} ambient humidity"
     low_transfer_voltage:
       name: "${name} low transfer voltage"
     nominal_output_voltage:
       name: "${name} nominal output voltage"
     upper_transfer_voltage:
       name: "${name} upper transfer voltage"
-    ambient_humidity:
-      name: "${name} ambient humidity"
-      
-text_sensor:
+    nominal_battery_voltage:
+      name: "${name} nominal_battery_voltage"
+    return_threshold:
+      name: "${name} return_threshold"
+      filters:
+        - calibrate_linear:
+           method: exact
+           datapoints:
+            - 0 -> 0
+            - 1 -> 15
+            - 2 -> 25
+            - 3 -> 90
+
   - platform: apc_ups
     apc_ups_id: ups0
     cause_of_last_transfer:
       name: "${name} cause of last transfer"
-    protocol_info:
-      name: "${name} protocol info"
+      filters:
+        - substitute:
+          - "R -> неприемлемая скорость изменения напряжения сети" # unacce table utility voltage rate of change
+          - "S -> передача по команде U или активация ИБП" #transfer due to U command or activation of UPS
+          - "NA -> причина перевода по-прежнему недоступна" # прочитайте еще раз # transfer reason still not available; read again 
+          - "H -> высокое напряжение сети" #high utility voltage
+          - "L -> низкое напряжение сети" #low utility voltage
+          - "T -> скачок напряжения" #line voltage notch or spike
+          - "O -> никаких переходов с момента включения" #no transfers since turnon
     firmware_revision:
       name: "${name} firmware revision"
     manufacture_date:
@@ -130,17 +144,30 @@ text_sensor:
     serial_number:
       name: "${name} serial number"
     old_firmware_version:
-      name: "${name}  old firmware version"
-    measure_upc_firmware:
-      name: "${name} measure_upc_firmware"
-    copyright_notice:
-      name: "${name} copyright_notice"
+      name: "${name} old firmware version"
+ #   measure_upc_firmware:
+ #     name: "${name} measure_upc_firmware"
+ #   copyright_notice:
+ #     name: "${name} copyright_notice"
     self_test_results:
       name: "${name} self_test_results"
+      filters:
+        - substitute:
+          - "OK -> хорошая батарея" #good battery
+          - "BT -> произошел сбой из-за недостаточной емкости" #failed due to insufficient capacity
+          - "NG -> произошел сбой из-за перегрузки" #failed due to overload
+          - "NO -> результаты отсутствуют (за последние 5 минут тест не проводился)" # no results available (no test performed in last 5 minutes
     alarm_delay:
       name: "${name} alarm_delay"
+      filters:
+        - substitute:
+          - "0 -> Задержка в 5 секунд после отключения питания" #5 second delay after power fail
+          - "T -> Задержка в 30 секунд" #30 second delay
+          - "L -> сигнал тревоги только при низком заряде батареи" #alarm at low battery only
+          - "N -> никакой тревоги" # no alarm
     line_quality:
       name: "${name} line_quality"
-
-
-
+      filters:
+        - substitute:
+          - "00 -> неприемлемый" # unacceptable
+          - "FF -> приемлемый" # acceptable
