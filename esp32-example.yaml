@@ -122,6 +122,7 @@ sensor:
             - 2 -> 25
             - 3 -> 90
 
+text_sensor:
   - platform: apc_ups
     apc_ups_id: ups0
     cause_of_last_transfer:
